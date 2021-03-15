@@ -923,7 +923,7 @@ select {
   transform: rotateY(90deg) translateZ(-0.475vw);
 }
 .circle-a__bottom {
-  border: 1vw solid #f2f2f2;
+  background-color: #f2f2f2;
 }
 .circle-b {
   position: absolute;

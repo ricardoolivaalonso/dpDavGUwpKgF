@@ -560,7 +560,10 @@ select{
 
         @include cylinder($base, $sides, $degree, $pi, $width, $key-b1);
 
-        &__bottom{ border: 1vw solid $key-b1; }
+        &__bottom{ 
+            // border: 1vw solid $key-b1;
+            background-color: $key-b1; 
+        }
     }
     &-b{
         $base: 5vw;
