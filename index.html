@@ -16,16 +16,35 @@
         <path d="M18.084,11.639c0.168,0.169,0.168,0.442,0,0.611c-0.084,0.084-0.195,0.127-0.306,0.127c-0.111,0-0.221-0.043-0.306-0.127l-1.639-1.639l-1.639,1.639c-0.084,0.084-0.195,0.127-0.306,0.127c-0.111,0-0.222-0.043-0.307-0.127c-0.168-0.169-0.168-0.442,0-0.611L15.223,10l-1.64-1.639c-0.168-0.168-0.168-0.442,0-0.61c0.17-0.169,0.442-0.169,0.612,0l1.639,1.639l1.639-1.639c0.169-0.169,0.442-0.169,0.611,0c0.168,0.168,0.168,0.442,0,0.61L16.445,10L18.084,11.639z M12.161,2.654v14.691c0,0.175-0.105,0.333-0.267,0.4c-0.054,0.021-0.109,0.032-0.166,0.032c-0.111,0-0.223-0.043-0.305-0.127l-3.979-3.979H2.222c-0.237,0-0.432-0.194-0.432-0.432V6.759c0-0.237,0.195-0.432,0.432-0.432h5.222l3.979-3.978c0.123-0.125,0.309-0.163,0.471-0.095C12.056,2.322,12.161,2.479,12.161,2.654 M7.192,7.192H2.654v5.617h4.538V7.192z M11.296,3.698l-3.24,3.241v6.123l3.24,3.24V3.698z"></path>
       </svg>
     </div>
-    <select id="speaker-t">
-      <option value="circle-speaker">circle </option>
-      <option value="square-speaker">square</option>
-    </select>
+    <div class="temp">
+      <select id="speaker-t">
+        <option value="circle-speaker">circle </option>
+        <option value="square-speaker">square</option>
+      </select>
+      <div>
+        <label for="small-s">Small Speaker</label>
+        <input type="checkbox" name="" id="small-s">
+      </div>
+      <div>
+        <label for="handle-e">Handle</label>
+        <input type="checkbox" name="" id="handle-e">
+      </div>
+      <div>
+        <label for="antenna-l">Antenna left</label>
+        <input type="checkbox" name="" id="antenna-l">
+      </div>
+      <div>
+        <label for="antenna-r">Antenna right</label>
+        <input type="checkbox" name="" id="antenna-r">
+      </div>
+    </div>
     <div class="boombox flex" id="boombox">
       <div class="shadow">
         <div class="shadow-a"></div>
         <div class="shadow-b"> </div>
-        <div class="shadow-c"></div>
-        <div class="shadow-d"></div>
+        <div class="shadow-c handle-e"></div>
+        <div class="shadow-d antenna-l"></div>
+        <div class="shadow-e antenna-r"></div>
       </div>
       <div class="base">
         <div class="base__front face"> </div>
@@ -44,7 +63,7 @@
             <div class="b-base__right face"> </div>
             <div class="b-base__left face"> </div>
             <div class="b-base__top face flex"> 
-              <div class="circle flex circle--al">
+              <div class="circle flex circle--al antenna-l">
                 <div class="circle-d"> 
                   <div class="circle-d__side"></div>
                   <div class="circle-d__side"></div>
@@ -58,7 +77,7 @@
                   <div class="circle-d__side"></div>
                 </div>
               </div>
-              <div class="circle flex circle--ar">
+              <div class="circle flex circle--ar antenna-r">
                 <div class="circle-d"> 
                   <div class="circle-d__side"></div>
                   <div class="circle-d__side"></div>
@@ -72,7 +91,7 @@
                   <div class="circle-d__side"></div>
                 </div>
               </div>
-              <div class="handle">
+              <div class="handle handle-e">
                 <div class="handle__shadow"></div>
                 <div class="handle-l">
                   <div class="handle-l__front face"> </div>
@@ -218,7 +237,7 @@
                 <div class="square__top face"></div>
                 <div class="square__bottom face"> </div>
               </div>
-              <div class="circle flex circle--top-left">
+              <div class="circle flex circle--top-left small-speakers">
                 <div class="circle-c"> 
                   <div class="circle-c__side"></div>
                   <div class="circle-c__side"></div>
@@ -260,7 +279,7 @@
                   <div class="circle-c__bottom"></div>
                 </div>
               </div>
-              <div class="circle flex circle--top-right">
+              <div class="circle flex circle--top-right small-speakers">
                 <div class="circle-c"> 
                   <div class="circle-c__side"></div>
                   <div class="circle-c__side"></div>

@@ -1,27 +1,46 @@
 /***********************/
 // Settings
 /***********************/
+//Body color
 $bg-1: #F498AD;
 $bg-2: #be4e67;
-
+//Boombox color
 $radio-1: #00FFF0;
 $radio-2: #00DBCD;
 $radio-3: #23baa8;
 $radio-4: #12ada6;
 $radio-5: #0e9790;
 $radio-6: #0d8882;
-
+// Yellow button
 $key-a1: #EEDB73;
 $key-a2: #d6c35a;
 $key-a3: #bba83a;
-
+// White button
 $key-b1: #f2f2f2;
 $key-b2: #dddddd;
 $key-b3: #b3b3b3;
-
+// Purple button
 $key-c1: #6e82ed;
 $key-c2: #5669d5;
 $key-c3: #3d52c3;
+// Tape
+$tape-1: #f2f2f2;
+$tape-2: #ed6e79;
+$tape-3: #f2f2f2;
+// Handle
+$handle-1: #6e82ed;
+$handle-2: #5669d5;
+$handle-3: #3d52c3;
+//Big speaker
+$big-speaker-1: #f2f2f2;
+$big-speaker-2: #dddddd;
+$big-speaker-3: #b3b3b3;
+//Small speaker
+$small-speaker-1: #3dbcee;
+$small-speaker-2: #26a6d8;
+$small-speaker-3: #1487b4;
+//Antenna
+$antenna-1: #066435;
 
 /***********************/
 // Tools
@@ -172,6 +191,8 @@ body{
     overflow: hidden;
 	cursor: pointer;
     background-color: $bg-1;
+    font-family: sans-serif;
+    font: 16px;
 }
 .face{ position: absolute; }
 .flex{
@@ -182,13 +203,24 @@ body{
 /***********************/
 // 
 /***********************/
-select{
-    padding: 10px 20px;
-    font-size: 18px;
+.temp{
     position: absolute;
     bottom: 50px;
     left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20000px;
     transform: translateZ(20000px);
+    background-color: $key-b1;
+    padding: 10px;
+    box-shadow: 0 0 4px 2px rgba(black, .125);
+
+    > * { margin-right: 20px;}
+}
+select{
+    padding: 10px 20px;
+    font-size: 18px;
 }
 
 
@@ -197,6 +229,9 @@ select{
     left: 50%;
     bottom: 50px;
     transform: translateX(-50%);
+
+    z-index: 20001px;
+    transform: translateZ(20001px);
 }
 .svg-icon {
     width: 30px;
@@ -265,18 +300,17 @@ select{
         border-left: .5vw solid $bg-2;
         border-right: .5vw solid $bg-2;
     }
-    &-d{
+    &-d,
+    &-e{
         position: absolute;
         top: -150%;
         left: 60%;
         width: 26vw;
         height: 100%;
         transform: translateX(-50%);
-
-        border-left: .35vw solid $bg-2;
-        border-right: .35vw solid $bg-2;
     }
-
+    &-d{ border-left: .35vw solid $bg-2; }
+    &-e{ border-right: .35vw solid $bg-2; }
 }
 //------------------
 .base{
@@ -395,12 +429,12 @@ select{
         height: $depth-el * 2;
         position: absolute;
 
-        &__front{ background-color: $key-c2; }
-        &__back{ background-color: $key-c3; }
-        &__right{ background-color: $key-c3; }
-        &__left{ background-color: $key-c1; }
-        &__top{ background-color: $key-c1;}
-        &__bottom{ background-color: $key-c3; }
+        &__front{ background-color: $handle-2; }
+        &__back{ background-color: $handle-3; }
+        &__right{ background-color: $handle-3; }
+        &__left{ background-color: $handle-1; }
+        &__top{ background-color: $handle-1;}
+        &__bottom{ background-color: $handle-3; }
     }
 
     &-l{ left: 0;}
@@ -417,12 +451,12 @@ select{
         position: absolute;
         transform: translateZ(2vw);
         
-        &__front{ background-color: $key-c2; }
-        &__back{ background-color: $key-c3; }
-        &__right{ background-color: $key-c3; }
-        &__left{ background-color: $key-c1; }
-        &__top{ background-color: $key-c1;}
-        &__bottom{ background-color: $key-c3; }
+        &__front{ background-color: $handle-2; }
+        &__back{ background-color: $handle-3; }
+        &__right{ background-color: $handle-3; }
+        &__left{ background-color: $handle-1; }
+        &__top{ background-color: $handle-1;}
+        &__bottom{ background-color: $handle-3; }
     }
     &__shadow{
         position: absolute;
@@ -534,7 +568,7 @@ select{
         width: 7vw;
         height: 7vw;
         bottom: 1vw;
-        background-color: darken($key-b3, 10);
+        background-color: darken($big-speaker-3, 10);
     }
     &--left{ left: 1vw;}
     &--right{ right: 1vw;}
@@ -560,10 +594,7 @@ select{
 
         @include cylinder($base, $sides, $degree, $pi, $width, $key-b1);
 
-        &__bottom{ 
-            // border: 1vw solid $key-b1;
-            background-color: $key-b1; 
-        }
+        &__bottom{ background-color: $big-speaker-1; }
     }
     &-b{
         $base: 5vw;
@@ -575,7 +606,7 @@ select{
         height: $base;
         transform: rotateY(90deg) translateX(-50%);
 
-        @include cylinder($base, $sides, $degree, $pi, $width, $key-b1);
+        @include cylinder($base, $sides, $degree, $pi, $width, $big-speaker-1);
     }
     &-c{
         $base: 2.5vw;
@@ -587,9 +618,9 @@ select{
         width: $width;
         height: $base;
         transform: rotateY(90deg) translateX(-55%);
-        @include cylinder($base, $sides, $degree, $pi, $width, $key-b1);
+        @include cylinder($base, $sides, $degree, $pi, $width, $small-speaker-1);
 
-        &__bottom{ background-color: $key-b1; }
+        &__bottom{ background-color: $small-speaker-1; }
     }
     &--al,
     &--ar{
@@ -615,7 +646,7 @@ select{
         position: absolute;
         width: $width;
         height: $base;
-        @include cylinder($base, $sides, $degree, $pi, $width, $key-b1);
+        @include cylinder($base, $sides, $degree, $pi, $width, $antenna-1);
     }
 }
 
@@ -633,12 +664,12 @@ $height-finish: .75vw;
     position: absolute;
     border-radius: 0;
 
-    &__front{ background-color: $key-b3;}
-    &__back{ background-color: $key-b1; }
-    &__right{ background-color: $key-b3;}
-    &__left{ background-color: $key-b1;}
-    &__top{ background-color: $key-b2;}
-    &__bottom{  background-color: $key-b3; } 
+    &__front{ background-color: $big-speaker-3;}
+    &__back{ background-color: $big-speaker-1; }
+    &__right{ background-color: $big-speaker-3;}
+    &__left{ background-color: $big-speaker-1;}
+    &__top{ background-color: $big-speaker-2;}
+    &__bottom{  background-color: $big-speaker-3; } 
 }
 
 .sfa{ @include face-ani(grow-front-speaker, .5s, cube-front, $width-el, $height-el, $depth-el);}
@@ -817,8 +848,8 @@ $height-finish: .3vw;
     height: 4vw;
     transform: translateX(-50%);
 
-    border: .75vw solid $key-b1;
-    background-color: $key-c1;
+    border: .75vw solid $tape-1;
+    background-color: $tape-2;
 
     &::before,
     &::after{
@@ -826,7 +857,7 @@ $height-finish: .3vw;
         position: absolute;
         width: 1vw;
         height: 1vw;
-        background-color: $key-b1;
+        background-color: $tape-3;
         border-radius: 50%;
         top: 50%;
         transform: translateY(-50%);
